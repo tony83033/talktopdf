@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ClerkProvider, UserButton ,auth} from '@clerk/nextjs'
 import Link from 'next/link';
 import { LogIn } from 'lucide-react';
+import FileUpload from '@/components/ui/FileUpload';
 export default async function Home() {
   const {userId} = await auth();
   const isAuth = !!userId;
@@ -21,7 +22,7 @@ export default async function Home() {
         <p className='max-w-full mt-2 text-center text-lg text-slate-600'>join milllion of sudents. resarchers and professinals to instantly answer question and understand research with AI</p>
 
         <div className='w-full mt-4'>
-          {isAuth ?(<h1>fileupload</h1>):(<Link href="/sign-in">
+          {isAuth ?(<FileUpload></FileUpload>):(<Link href="/sign-in">
           <Button className='bg-black text-white' variant="outline"> Login to get Started <LogIn className='w-4 h-4 m-2'/></Button>
 
           </Link>)}
